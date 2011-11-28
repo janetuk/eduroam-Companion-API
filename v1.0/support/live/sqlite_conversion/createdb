@@ -1,0 +1,34 @@
+CREATE TABLE "Site" (
+	"id" integer NOT NULL primary key,
+	"name" varchar(255) NOT NULL,
+	"lastUpdate" datetime NOT NULL
+);
+
+CREATE TABLE "SubSites" (
+	"id" integer NOT NULL primary key,
+	"site" integer NOT NULL,
+	"name" varchar(255) NOT NULL,
+	"address" varchar(255) NOT NULL,
+	"lat" double NOT NULL,
+	"lng" double NOT NULL,
+	"altitude" double NOT NULL,
+	"ssid" varchar(45) DEFAULT NULL,
+	"encryption" varchar(45) DEFAULT NULL,
+	"accesspoints" integer DEFAULT NULL,
+	"lastUpdate" datetime NOT NULL
+);
+
+CREATE TABLE "APs" (
+	"id" integer NOT NULL primary key,
+	"lat" double NOT NULL,
+	"lng" double NOT NULL,
+	"subsite" integer NOT NULL,
+	"rating" double NOT NULL,
+	"lastUpdate" datetime NOT NULL
+);
+
+CREATE TABLE "Info" (
+	"id" integer NOT NULL primary key,
+	"baseversion" integer NOT NULL,
+	"lastUpdate" datetime
+);
